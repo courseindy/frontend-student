@@ -17,7 +17,7 @@ export default class StudentComponent extends React.Component {
 
   getStudent() {
     axios
-      .get('http://165.22.252.71:3001/api/student')
+      .get('http://165.22.255.212:3001/api/student')
       .then(response => response.data)
       .then(data => {
         this.setState(
@@ -69,7 +69,7 @@ export default class StudentComponent extends React.Component {
 
     if (this.state.id == null || this.state.id == '') {
       // Insert 
-      axios.post('http://165.22.252.71:3001/api/student', this.state)
+      axios.post('http://165.22.255.212:3001/api/student', this.state)
         .then(response => {
           if (response.status == 200) {
             this.getStudent()
@@ -80,7 +80,7 @@ export default class StudentComponent extends React.Component {
         })
     } else {
       // Update
-      axios.put('http://165.22.252.71:3001/api/student/' + this.state.id, this.state)
+      axios.put('http://165.22.255.212:3001/api/student/' + this.state.id, this.state)
         .then(response => {
           if (response.status == 200) {
             this.getStudent();
@@ -94,7 +94,7 @@ export default class StudentComponent extends React.Component {
 
   //  Search 
   handleSearchClick = (id) => () => {
-    axios.get('http://165.22.252.71:3001/api/student/' + id, this.state)
+    axios.get('http://165.22.255.212:3001/api/student/' + id, this.state)
       .then(response => {
         if (response.status == 200) {
           this.setState({
@@ -111,7 +111,7 @@ export default class StudentComponent extends React.Component {
 
   // Delete
   handleDeleteClick = (id) => () => {
-    axios.delete('http://165.22.252.71:3001/api/student/' + id)
+    axios.delete('http://165.22.255.212:3001/api/student/' + id)
       .then(response => {
         if (response.status == 200) {
           setTimeout(() => {
